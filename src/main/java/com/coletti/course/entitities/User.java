@@ -1,19 +1,24 @@
 package com.coletti.course.entitities;
 
+import jakarta.persistence.*;
+
 import java.io.Serializable;
 import java.util.Objects;
 
+@Entity
+@Table(name = "tb_user")
 public class User implements Serializable {
     private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private Long id;
     private String name;
     private String email;
     private String password;
     private String phone;
-    private User() {
 
-    }
     public User(Long id, String name, String email, String password, String phone) {
         super();
         this.id = id;
@@ -21,6 +26,10 @@ public class User implements Serializable {
         this.email = email;
         this.password = password;
         this.phone = phone;
+
+    }
+
+    public User() {
 
     }
 
