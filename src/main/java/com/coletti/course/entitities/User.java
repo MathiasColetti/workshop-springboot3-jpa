@@ -3,6 +3,8 @@ package com.coletti.course.entitities;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -12,12 +14,15 @@ public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private Long id;
     private String name;
     private String email;
     private String password;
     private String phone;
+
+    @OneToMany(mappedBy = "client")
+    private List<Order> orders;
+
 
     public User(Long id, String name, String email, String password, String phone) {
         super();
@@ -71,6 +76,10 @@ public class User implements Serializable {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
     }
 
     @Override
