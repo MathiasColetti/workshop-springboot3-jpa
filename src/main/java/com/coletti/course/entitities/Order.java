@@ -32,8 +32,10 @@ public class Order implements Serializable {
     }
 
     public Order(Long id, Instant orderDate, OrderStatus status, User client) {
+        super();
         this.client = client;
         this.id = id;
+        setOrderStatus(status);
         this.orderDate = orderDate;
     }
 
@@ -61,13 +63,14 @@ public class Order implements Serializable {
         this.orderDate = orderDate;
     }
 
-    public OrderStatus getStatus() {
-        OrderStatus status;
-        return status;
+    public OrderStatus getOrderStatus() {
+        return OrderStatus.valueOf(orderStatus);
     }
 
-    public void setStatus(OrderStatus status) {
-        this.status = status;
+    public void setOrderStatus(OrderStatus orderStatus) {
+        if (orderStatus != null) {
+            this.orderStatus = orderStatus.getCode();
+        }
     }
 
     @Override
