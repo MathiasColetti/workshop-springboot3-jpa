@@ -2,7 +2,7 @@ package com.coletti.course.entitities;
 
 import com.coletti.course.enums.OrderStatus;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 
 import java.io.Serializable;
