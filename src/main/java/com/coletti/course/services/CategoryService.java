@@ -3,7 +3,6 @@ package com.coletti.course.services;
 import com.coletti.course.entitities.Category;
 import com.coletti.course.entitities.User;
 import com.coletti.course.repositories.CategoryRepository;
-import com.coletti.course.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +13,7 @@ import java.util.Optional;
 public class CategoryService {
 
     @Autowired
-    public CategoryRepository   categoryRepository;
+    public CategoryRepository  categoryRepository;
 
     public List<Category> findAll() {
         return categoryRepository.findAll();
